@@ -584,10 +584,10 @@ function Yargs (processArgs, cwd, parentRequire) {
     let err, parsed
     try {
       parsed = await self._parseArgs(args, shortCircuit)
+      if (parseFn) parseFn(exitError, parsed, output)
     } catch (error) {
       err = error
     }
-    if (parseFn) parseFn(exitError, parsed, output)
     unfreeze()
 
     if (err) throw err
