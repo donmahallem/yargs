@@ -1162,7 +1162,8 @@ describe('Command', () => {
               err.message.should.match(/yikes an error/)
               return done()
             })
-        }, true)
+            .should.be.rejected
+        })
       })
     })
 
@@ -1446,7 +1447,8 @@ describe('Command', () => {
             done()
           })
           .parse()
-      }, true)
+          .should.be.rejected
+      })
     })
 
     it('succeeds when the promise returned by the command handler resolves', async () => {
